@@ -307,7 +307,7 @@ module gear (
 	involute_facets=0,
 	addendum_adjustment=1,
 	dedendum_adjustment=1,
-	flat=false)
+	flat=false,verbose=false)
 {
 	if (circular_pitch==false && diametral_pitch==false)
 		echo("MCAD ERROR: gear module needs either a diametral_pitch or circular_pitch");
@@ -318,7 +318,7 @@ module gear (
 	// Pitch diameter: Diameter of pitch circle.
 	pitch_diameter  =  number_of_teeth * circular_pitch / 180;
 	pitch_radius = pitch_diameter/2;
-	echo ("Teeth:", number_of_teeth, " Pitch radius:", pitch_radius);
+	if (verbose) echo ("Teeth:", number_of_teeth, " Pitch radius:", pitch_radius);
 
 	// Base Circle
 	base_radius = pitch_radius*cos(pressure_angle);
